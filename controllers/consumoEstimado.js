@@ -14,10 +14,10 @@ function getConsumoEstimado(req,res){
     sql+="re.Id idRangoEdad, ";
     sql+="re.Descripcion descripcionRangoEdad, ";
     sql+="ce.CantidadPorciones CantidadPorcionesEstimado ";
-    sql+= "FROM Consumo_Estimado ce ";
-    sql+= "INNER JOIN Grupo_Alimenticio ga  ON ga.Id = ce.IdGrupoAlimenticio ";
-    sql+= "INNER JOIN Sexo s  ON s.Id = ce.IdSexo ";
-    sql+= "INNER JOIN Rango_Edad re  ON re.Id = ce.IdRangoEdad ";
+    sql+= "FROM consumo_estimado ce ";
+    sql+= "INNER JOIN grupo_alimenticio ga  ON ga.Id = ce.IdGrupoAlimenticio ";
+    sql+= "INNER JOIN sexo s  ON s.Id = ce.IdSexo ";
+    sql+= "INNER JOIN rango_edad re  ON re.Id = ce.IdRangoEdad ";
     sql+="WHERE ce.IdSexo="+idSexo+" AND ce.IdRangoEdad="+idRangoEdad;
 
     con.query(sql, function (err, sexo, field) {
