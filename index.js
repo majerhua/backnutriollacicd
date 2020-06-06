@@ -2,7 +2,7 @@
 //PARA PODER USAR LAS FUNCIONALIDADES DE ECMASCRIPT6
 
 const express = require('express');
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 4000;
