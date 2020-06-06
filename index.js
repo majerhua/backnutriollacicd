@@ -22,6 +22,10 @@ app.get('/api/grupos-alimenticios',grupoAlimenticioCtrl.getGrupoAlimenticios);
 const consumoEstimadoCtrl = require('./controllers/consumoEstimado');
 app.get('/api/consumo-estimado',consumoEstimadoCtrl.getConsumoEstimado);
  
+/*GRUPO ALIMENTOS*/
+const alimentoCtrl = require('./controllers/alimento');
+app.get('/api/alimentos',alimentoCtrl.getAlimentos);
+
 app.listen(port,()=>{
     console.log(`Api rest corriendo en http://localhost:${port}`);
 });
