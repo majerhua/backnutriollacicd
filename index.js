@@ -16,6 +16,7 @@ const sexoCtrl = require('./controllers/sexo');
 const rangoEdadCtrl = require('./controllers/rangoEdad');
 const grupoAlimenticioCtrl = require('./controllers/grupoAlimenticio');
 const consumoEstimadoCtrl = require('./controllers/consumoEstimado');
+const alimentoCtrl = require('./controllers/alimento');
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -42,8 +43,9 @@ app.get('/api/grupos-alimenticios',grupoAlimenticioCtrl.getGrupoAlimenticios);
 app.get('/api/consumo-estimado',consumoEstimadoCtrl.getConsumoEstimado);
  
 /* ALIMENTOS*/
-const alimentoCtrl = require('./controllers/alimento');
 app.get('/api/alimentos',alimentoCtrl.getAlimentos);
+app.get('/api/alimento/:idAlimento',alimentoCtrl.getAlimento);
+
 
 app.listen(port,()=>{
     console.log(`Api rest corriendo en http://localhost:${port}`);
