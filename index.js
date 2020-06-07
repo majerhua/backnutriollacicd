@@ -2,27 +2,46 @@
 //PARA PODER USAR LAS FUNCIONALIDADES DE ECMASCRIPT6
 
 const express = require('express');
-//const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 4000;
-/*SEXO*/
+
+
+app.use(bodyParser.urlencoded({ extended:false }));
+app.use(bodyParser.json());
+
+
 const sexoCtrl = require('./controllers/sexo');
+const rangoEdadCtrl = require('./controllers/rangoEdad');
+const grupoAlimenticioCtrl = require('./controllers/grupoAlimenticio');
+const consumoEstimadoCtrl = require('./controllers/consumoEstimado');
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
+});
+
+/*SEXO*/
+
 app.get('/api/sexos',sexoCtrl.getSexos);
 
 /*RANGO EDADES*/ 
-const rangoEdadCtrl = require('./controllers/rangoEdad');
+
 app.get('/api/rango-edades',rangoEdadCtrl.getRangoEdades);
 
 /*GRUPO ALIMENTICIO*/
-const grupoAlimenticioCtrl = require('./controllers/grupoAlimenticio');
+
 app.get('/api/grupos-alimenticios',grupoAlimenticioCtrl.getGrupoAlimenticios);
 
 /*COMSUMO ESTIMADO*/ 
-const consumoEstimadoCtrl = require('./controllers/consumoEstimado');
+
 app.get('/api/consumo-estimado',consumoEstimadoCtrl.getConsumoEstimado);
  
-/*GRUPO ALIMENTOS*/
+/* ALIMENTOS*/
 const alimentoCtrl = require('./controllers/alimento');
 app.get('/api/alimentos',alimentoCtrl.getAlimentos);
 
