@@ -20,12 +20,12 @@ function getConsumoEstimado(req,res){
     sql_consumo_Estimado+= "INNER JOIN rango_edad re  ON re.Id = ce.IdRangoEdad ";
     sql_consumo_Estimado+="WHERE ce.IdSexo="+idSexo+" AND ce.IdRangoEdad="+idRangoEdad;
 
-
+/*
     var sql_aporte_estimado = "SELECT distinct ";
     sql_aporte_estimado+= "Kcal ";
     sql_aporte_estimado+="FROM Aporte_Estimado ";
     sql_aporte_estimado+="WHERE IdSexo="+idSexo+" AND IdRangoEdad="+idRangoEdad;
-
+*/
     con.query(sql_consumo_Estimado, function (err, consumo_estimado, field) {
         if (err) return res.status(500).send({message:err.message})
         con.query(sql_aporte_estimado, function (err, aporte_estimado, field) {

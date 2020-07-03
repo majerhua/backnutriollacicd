@@ -7,16 +7,15 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 4000;
 
-
 app.use(bodyParser.urlencoded({ extended:false }));
 app.use(bodyParser.json());
-
 
 const sexoCtrl = require('./controllers/sexo');
 const rangoEdadCtrl = require('./controllers/rangoEdad');
 const grupoAlimenticioCtrl = require('./controllers/grupoAlimenticio');
 const consumoEstimadoCtrl = require('./controllers/consumoEstimado');
 const alimentoCtrl = require('./controllers/alimento');
+const alumnoCtrl = require('./controllers/alumno');
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -46,6 +45,8 @@ app.get('/api/consumo-estimado',consumoEstimadoCtrl.getConsumoEstimado);
 app.get('/api/alimentos',alimentoCtrl.getAlimentos);
 app.get('/api/alimento/:idAlimento',alimentoCtrl.getAlimento);
 
+/*FACULTAD*/
+app.get('/api/alumnos',alumnoCtrl.getAlumnos);
 
 app.listen(port,()=>{
     console.log(`Api rest corriendo en http://localhost:${port}`);
