@@ -13,7 +13,8 @@ function getConsumoEstimado(req,res){
     sql_consumo_Estimado+="s.Descripcion descripcionSexo, ";
     sql_consumo_Estimado+="re.Id idRangoEdad, ";
     sql_consumo_Estimado+="re.Descripcion descripcionRangoEdad, ";
-    sql_consumo_Estimado+="ce.CantidadPorciones CantidadPorcionesEstimado ";
+    sql_consumo_Estimado+="ce.CantidadPorciones CantidadPorcionesEstimado, ";
+    sql_consumo_Estimado+="ga.Color color ";
     sql_consumo_Estimado+= "FROM consumo_estimado ce ";
     sql_consumo_Estimado+= "INNER JOIN grupo_alimenticio ga  ON ga.Id = ce.IdGrupoAlimenticio ";
     sql_consumo_Estimado+= "INNER JOIN sexo s  ON s.Id = ce.IdSexo ";
