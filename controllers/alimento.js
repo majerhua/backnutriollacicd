@@ -10,6 +10,7 @@ function getAlimentos(req,res){
     sql_alimento+="a.Nombre, ";
     sql_alimento+="a.Peso, ";
     sql_alimento+="a.MedidaCasera, ";
+    sql_alimento+="a.Cantidad, ";
     sql_alimento+="ga.Nombre GrupoAlimenticio, ";
     sql_alimento+="ga.Id IdGrupoAlimenticio, ";
     sql_alimento+="ga.Color color ";
