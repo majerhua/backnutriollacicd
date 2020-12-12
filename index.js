@@ -1,7 +1,7 @@
-'use strict'
+"use strict";
 //PARA PODER USAR LAS FUNCIONALIDADES DE ECMASCRIPT6
 
-const express = require('express');
+/*const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -25,29 +25,42 @@ app.use((req, res, next) => {
     next();
 });
 
-/*SEXO*/
+
 
 app.get('/api/sexos',sexoCtrl.getSexos);
 
-/*RANGO EDADES*/ 
+ 
 
 app.get('/api/rango-edades',rangoEdadCtrl.getRangoEdades);
 
-/*GRUPO ALIMENTICIO*/
+
 
 app.get('/api/grupos-alimenticios',grupoAlimenticioCtrl.getGrupoAlimenticios);
 
-/*COMSUMO ESTIMADO*/ 
+ 
 
 app.get('/api/consumo-estimado',consumoEstimadoCtrl.getConsumoEstimado);
  
-/* ALIMENTOS*/
+
 app.get('/api/alimentos',alimentoCtrl.getAlimentos);
 app.get('/api/alimento/:idAlimento',alimentoCtrl.getAlimento);
 
-/*FACULTAD*/
 app.get('/api/alumnos',alumnoCtrl.getAlumnos);
 
 app.listen(port,()=>{
     console.log(`Api rest corriendo en http://localhost:${port}`);
 });
+*/
+
+//importing node framework
+var express = require("express");
+
+var app = express();
+//Respond with "hello world" for requests that hit our root "/"
+app.get("/", function (req, res) {
+  res.send("hello world");
+});
+//listen to port 3000 by default
+app.listen(process.env.PORT || 3000);
+
+module.exports = app;
