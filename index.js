@@ -1,6 +1,6 @@
 "use strict";
 //PARA PODER USAR LAS FUNCIONALIDADES DE ECMASCRIPT6
-
+/*
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -44,9 +44,9 @@ app.get("/api/alumnos", alumnoCtrl.getAlumnos);
 app.listen(port, () => {
   console.log(`Api rest corriendo en http://localhost:${port}`);
 });
-
+*/
 //importing node framework
-/*
+
 var express = require("express");
 
 var app = express();
@@ -55,6 +55,6 @@ app.get("/", function (req, res) {
   res.send("Hola albert");
 });
 //listen to port 3000 by default
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 4000);
 
-module.exports = app;*/
+module.exports = app;
